@@ -2,6 +2,12 @@
   "title": "CockroachDB Intro",
   "description": "Fase 1: Instalación de 1 nodo",
   "details": {
-    "intro": {"text":"intro.md"}
-  }
+    "intro": {
+      "text": "intro.md"
+    },"steps": [{
+      "title": "Descargar binario",
+      "text": "descarga.md"
+    }]
+  },
+  "backend":{"image": "ubuntu"}
 }
