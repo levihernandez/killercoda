@@ -9,5 +9,5 @@
       "text": "descarga.md"
     }]
   },
-  "backend":{"image": "ubuntu"}
+  "backend":{"imageid": "ubuntu"}
 }
