@@ -31,10 +31,18 @@
 
     `cockroach demo`{{exec}}
 
-    c) Ejecutar comandos SQL en la base de datos `default`:
+    c) Ejecutar comandos SQL en la base de datos `movr` y seleccionar 5 registros:
 
     `SHOW DATABASES;`{{exec}}
 
-    `USE defaultdb;`{{exec}}
+    `USE movr;`{{exec}}
 
     `SHOW TABLES;`{{exec}}
+
+    `SELECT * FROM rides LIMIT 5`
+
+    d) Accesa la interface Web UI en
+
+    e) Salir del Shell de SQL:
+
+    `quit;`{{exec}}
