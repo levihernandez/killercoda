@@ -33,8 +33,8 @@
 
     c) Ejecutar comandos SQL en la base de datos `default`:
 
-    `SHOW DATABASES;`
+    `SHOW DATABASES;`{{exec}}
 
-    `USE defaultdb;`
+    `USE defaultdb;`{{exec}}
 
-    `SHOW TABLES;`
+    `SHOW TABLES;`{{exec}}
