@@ -1,0 +1,7 @@
+{
+  "title": "CockroachDB Intro",
+  "description": "Scenario 1: Setup a single node CRDB cluster",
+  "details": {
+    "intro": "intro.md"
+  }
+}
