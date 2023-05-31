@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "path": "cockroachdb/1-node-install",
+      "path": "cockroachdb/single-node",
       "title": "CockroachDB - Single Node Install"
     }
   ]
