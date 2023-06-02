@@ -3,7 +3,7 @@
   "description": "Database Distribuida",
   "details": {
     "intro": {
-      "text": "instala-un-nodo/intro.md"
+      "text": "instala-um-node/intro.md"
     }
   },
   "backend": {
