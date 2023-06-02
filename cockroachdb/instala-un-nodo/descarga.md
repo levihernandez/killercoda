@@ -56,14 +56,16 @@ Objetivos:
 
     a) Despliegue el nodo:
 
-    `cockroach start-single-node --insecure --listen=localhost:26257 --http-addr=0.0.0.0:8080`{{exec}}
+    `cockroach start-single-node --insecure --listen-addr=localhost:26257 --http-addr=0.0.0.0:8080 --background`{{exec}}
 
     CockroachDB, en este caso, es ejecutado de forma insegura. El puerto de la base de datos es `26257`; el puerto Web UI de la consola es `8080` y la IP se asigna abierta `0.0.0.0`.
     En estos casos, la IP se puede asignar a una IP especifica.
 
     En este esenario no existe la base de datos `movr` que vimos anteriormente con `demo`.
 
-    b) Ejecutar comandos SQL en la base de datos `movr` y seleccionar 5 registros:
+    b) Conectarse a la base de datos y ejecutar comandos SQL en la base de datos `movr` y seleccionar 5 registros:
+
+    `cockroach sql --insecure --host=localhost:26257`{{exec}}
 
     `SHOW DATABASES;`{{exec}}
 
