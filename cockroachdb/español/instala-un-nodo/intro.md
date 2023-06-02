@@ -1,6 +1,3 @@
-# Instalación de un nodo
+### CockroachDB
 
-* Objetivos:
-  * Descargar binario de CockroachDB
-  * Instalar un nodo
-  * Visualizar el cluster via Web UI
+CockroachDB es una base de datos distribuida con el proposito de proporcional always-on con cero downtime para aplicativos de mision critica!
