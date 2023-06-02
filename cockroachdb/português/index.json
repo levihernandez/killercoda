@@ -1,6 +1,6 @@
 {
   "title": "Português: CockroachDB",
-  "description": "Database Distribuida",
+  "description": "Banco de Dados Distribuido",
   "details": {
     "intro": {
       "text": "instala-um-node/intro.md"

@@ -1,3 +1,3 @@
 ### CockroachDB
 
-CockroachDB es una base de datos distribuida con el proposito de proporcional always-on con cero downtime para aplicativos de mision critica!
+O CockroachDB é um banco de dados distribuído com o objetivo de estar sempre ativo proporcionalmente com tempo de inatividade zero para aplicativos de missão crítica!
