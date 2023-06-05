@@ -23,7 +23,9 @@
         "text": "decommission.md"
       }
     ],
-    "finish": "finish.md"
+    "finish": {
+      "text": "finish.md"
+    }
   },
   "backend": {
     "imageid": "ubuntu"
