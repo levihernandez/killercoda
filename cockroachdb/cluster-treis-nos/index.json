@@ -1,5 +1,5 @@
 {
-  "title": "CockroachDB: Cluser de 3 Nós",
+  "title": "CockroachDB: Cluser de 3 Nodes",
   "description": "Início Rápido do Cluster",
   "details": {
     "intro": {
@@ -19,7 +19,7 @@
         "text": "workload.md"
       },
       {
-        "title": "Excluir um Nó no CockroachDB",
+        "title": "Excluir um Node no CockroachDB",
         "text": "decommission.md"
       }
     ],
