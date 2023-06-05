@@ -1,4 +1,4 @@
-# Decomission a Node
+## Decomission a Node
 
 See Best Practices for node decommission: [Node Removal](https://www.cockroachlabs.com/docs/stable/node-shutdown.html)
 
@@ -23,11 +23,23 @@ SET CLUSTER SETTING server.time_until_store_dead = '15m0s';
 \q
 ```{{exec}}
 
+* Best practices dictate that our cluster must have minimal number of nodes in order to stay healthy. We will add a fourth node for scalability here to ensure we can decommission the first node.CockroachDB
+This ensures that the first node's data is transitioned to the new node. Observe how data moves to the new node in [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}/#/metrics/replication/cluster) `Replicas per Node` graph.
+
+```
+cockroach start --insecure --store=cockroach-data/cockroach4 --listen-addr=localhost:26260 --http-addr=0.0.0.0:8083 --join=localhost:26258,localhost:26259,localhost:26260 --background
+```{{exec}}
+
+We have assigned `--http-addr=0.0.0.0:8083` on this node to expose it to a public IP. To access the third node console, go to [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}) after initializing the cluster.
+
+
 * Check the progress of the node shutdown in the log and the `cockroach node status`
 
 ```
 cockroach node drain 1 --host=localhost:26257 --drain-wait=15m --insecure
 ```{{exec}}
+
+* The log provides a sequence of events during the draining of the node:
 
 ```
 grep 'drain' cockroach-data/cockroach1/logs/cockroach.log
@@ -39,7 +51,7 @@ grep 'drain' cockroach-data/cockroach1/logs/cockroach.log
 cockroach node status --decommission --insecure --host=localhost:26258
 ```{{exec}}
 
-* Lastly lets remove the node by decommissioning it, leaving a 2 node cluster (best practices are to always have a 3 node cluster for proper resiliency)
+* Lastly lets remove the node by decommissioning it [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}/#/overview/list) and notice the replicas are the same across every node. Your data just rebalanced with `zero downtime`.
 
 ```
 cockroach node decommission 1 --insecure --host=localhost:26258

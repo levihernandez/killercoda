@@ -1,4 +1,4 @@
-# Download, Install, Test CockroachDB
+## Download, Install, Test CockroachDB
 
 Cockroach Labs has designed the installation process as a straight forward approach to increase productivity.
 

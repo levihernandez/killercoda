@@ -1,4 +1,4 @@
-# Deploy a 3 Node Cluster
+## Deploy a 3 Node Cluster
 
 Creating a sandbox environment in CockroachDB is as simple as following the next steps:
 
@@ -74,4 +74,4 @@ Because we are running haproxy and all 3 instances of CockroachDB in the same VM
 
 `[ALERT] 155/142030 (23803) : Starting proxy psql: cannot bind socket [0.0.0.0:26257]`
 
-Next, we will create a TPCC workload and run it as well as test the failure of a node.
+Next, we will create a transactional workload and run it as well as test the failure of a node.

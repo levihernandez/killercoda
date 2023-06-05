@@ -1,4 +1,4 @@
-# CockroachDB Quickstart - Self-Hosted
+## CockroachDB Quickstart - Self-Hosted
 
 The current workshop will help you deploy an insecure (no-SSL) CockroachDB cluster step by step.
 

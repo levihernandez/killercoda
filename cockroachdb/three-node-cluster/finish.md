@@ -1,4 +1,4 @@
-# Summary
+## Summary
 
 There are different ways of deploying CockroachDB on self-hosted instances such as VMs, Kubernetes containers, secure (SSL) or insecure modes. All are aimed to be installed as a straight forward approach and make it easy to maintain. If you are looking for an approach where you don't need to maintain the cluster, Cockroach Labs offers Cockroach Cloud as a Dedicated service or Serverless.
 
