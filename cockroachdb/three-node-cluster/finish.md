@@ -6,3 +6,9 @@ There are different ways of deploying CockroachDB on self-hosted instances such 
 * We ran a workload that simulates transactions
 * We monitored the cluster activity while a node was down and then restored
 * We saw the value of using the distributed database and how it helps mitigate downtimes on critical workloads
+
+**Bonus:** Make use of the free resources:
+* [Cockroach Labs University](https://www.cockroachlabs.com/cockroach-university/)
+* Get the latest [Cockroach O'Reilly](https://www.cockroachlabs.com/resources/oreilly/) books
+* [Slack Community](https://www.cockroachlabs.com/join-community/)
+* Access the [Webinars](https://www.cockroachlabs.com/community/webinars/)
