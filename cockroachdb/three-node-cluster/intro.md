@@ -11,4 +11,5 @@ Objectives:
         * [CockroachDB UI Port 8081]({{TRAFFIC_HOST1_8081}})
         * [CockroachDB UI Port 8082]({{TRAFFIC_HOST1_8082}})
 * Run the `movr` small workload & SQL queries that list the activity in the cluster
+* Remove a node from the cluster
 * Summary
