@@ -6,19 +6,24 @@
       "text": "intro.md"
     },
     "steps": [
-      {"title": "",
+      {
+        "title": "Install CockroachDB",
         "text": "install.md"
       },
-      {"title": "",
+      {
+        "title": "Deploy CockroachDB",
         "text": "deploy.md"
       },
-      {"title": "",
+      {
+        "title": "Run a Worklaod in CockroachDB",
         "text": "workload.md"
       },
-      {"title": "",
+      {
+        "title": "Remove a Node in CockroachDB",
         "text": "decommission.md"
       }
-    ],"finish": "finish.md"
+    ],
+    "finish": "finish.md"
   },
   "backend": {
     "imageid": "ubuntu"
