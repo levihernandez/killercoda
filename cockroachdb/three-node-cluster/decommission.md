@@ -23,7 +23,9 @@ SET CLUSTER SETTING server.time_until_store_dead = '15m0s';
 \q
 ```{{exec}}
 
-* Best practices dictate that our cluster must have minimal number of nodes in order to stay healthy. We will add a fourth node for scalability here to ensure we can decommission the first node.CockroachDB
+
+
+* Best practices dictate that our cluster must have minimal number of nodes in order to stay healthy. We will add a fourth node for scalability here to ensure we can decommission the first node.
 This ensures that the first node's data is transitioned to the new node. Observe how data moves to the new node in [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}/#/metrics/replication/cluster) `Replicas per Node` graph.
 
 ```
@@ -31,6 +33,7 @@ cockroach start --insecure --store=cockroach-data/cockroach4 --listen-addr=local
 ```{{exec}}
 
 We have assigned `--http-addr=0.0.0.0:8083` on this node to expose it to a public IP. To access the third node console, go to [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}) after initializing the cluster.
+
 
 
 * Check the progress of the node shutdown in the log and the `cockroach node status`
@@ -44,6 +47,8 @@ cockroach node drain 1 --host=localhost:26257 --drain-wait=15m --insecure
 ```
 grep 'drain' cockroach-data/cockroach1/logs/cockroach.log
 ```{{exec}}
+
+
 
 * Since the node using the port `26257` is being drained, lets use the next available port `26258` to check the status of the node. The SQL result in the `is_draining` column has registered the `id=1`  as `true` to drain the node.
 

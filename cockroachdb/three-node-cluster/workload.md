@@ -83,4 +83,4 @@ SELECT variable, value FROM [SHOW ALL CLUSTER SETTINGS] WHERE variable IN ('vers
 SHOW CLUSTER SETTING version;
 ```{{exec}}
 
-Next we will proceed to remove and decommission a node. We will be left with 2 nodes, which are still fully functional. For best practices, ensure that your cluster has the appropriate resources to be resilient, minimum 3 nodes.
+Next we will proceed to remove and decommission a node. We will be left with 2 nodes but we will add a new one, which are still fully functional. For best practices, ensure that your cluster has the appropriate resources to be resilient, minimum 3 nodes.
