@@ -1,0 +1,36 @@
+{
+  "title": "CockroachDB: Cluser de 3 Nós",
+  "description": "Início Rápido do Cluster",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {
+        "title": "Instalar CockroachDB",
+        "text": "install.md"
+      },
+      {
+        "title": "Implantar CockroachDB",
+        "text": "deploy.md"
+      },
+      {
+        "title": "Executar um Workload no CockroachDB",
+        "text": "workload.md"
+      },
+      {
+        "title": "Excluir um Nó no CockroachDB",
+        "text": "decommission.md"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "interface": {
+    "layout": "ide"
+  }
+}

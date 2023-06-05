@@ -25,7 +25,7 @@ SHOW TABLES FROM movr;
 SELECT * FROM movr.users WHERE city='new york';
 ```{{exec}}
 
-* Exit the CockroachDB SQL console
+* Salga del la consola SQL de CockroachDB
 
 ```
 \q
@@ -41,7 +41,7 @@ cockroach workload run movr --duration=1m 'postgresql://root@localhost:26257?ssl
 
 ### Pruebe la Resiliencia del Clúster
 
-* Desactive el nodo con el puerto SQL 26257, desde esta perspectiva solo no hay un punto de entrada disponible, pero el clúster continúa ejecutándose y se puede acceder a través de los puertos `26258 y 26259`. Ejecutemos la carga de trabajo en el puerto SQL 26258 y verifiquemos la consola de la interfaz de usuario para revisar la actividad en el clúster; notará que un nodo no está disponible.
+* Desactive el nodo con el puerto SQL 26257, desde esta perspectiva en una arquitectura monolitica no hay un punto de entrada disponible. La ventaja con CockroachDB es que continua ejecutándose y se puede acceder a través de otros puertos como `26258 y 26259`. Ejecutemos la carga de trabajo en el puerto SQL 26258 y verifiquemos la consola de la interfaz de usuario para revisar la actividad en el clúster; notará que un nodo no está disponible.
 
 > Elimine el proceso unix para el primer nodo de CockroachDB
 
