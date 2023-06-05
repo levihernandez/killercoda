@@ -1,0 +1,29 @@
+{
+  "title": "CockroachDB: 3 Node Cluster",
+  "description": "CockroachDB Cluster Quickstart",
+  "details": {
+    "intro": {
+      "text": "intro.md"
+    },
+    "steps": [
+      {"title": "",
+        "text": "install.md"
+      },
+      {"title": "",
+        "text": "deploy.md"
+      },
+      {"title": "",
+        "text": "workload.md"
+      },
+      {"title": "",
+        "text": "decommission.md"
+      }
+    ],"finish": "finish.md"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  },
+  "interface": {
+    "layout": "ide"
+  }
+}
