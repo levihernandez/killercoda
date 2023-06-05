@@ -1,4 +1,4 @@
-## Descargar, instalar, probar CockroachDB
+## Descargar, Instalar, y Probar CockroachDB
 
 Cockroach Labs ha diseñado el proceso de instalación como un enfoque sencillo para aumentar la productividad.
 
@@ -14,7 +14,7 @@ export crdb_release="v23.1.2"; export architecture=$(dpkg --print-architecture)
 cd /home/ubuntu; curl https://binaries.cockroachdb.com/cockroach-${crdb_release}.linux-${architecture}.tgz | tar -xz
 ```{{exec}}
 
-* Copie el binario a la papelera del sistema para poder instalarlo
+* Para instalar CockroachDB, Copie el binario al sistema:
 
 ```
 cp -i cockroach-${crdb_release}.linux-${architecture}/cockroach /usr/local/bin/; which cockroach

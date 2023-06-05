@@ -1,14 +1,19 @@
-## Desplegar un clúster de 3 nodos
+## Clúster de 3 Nodos
 
 Crear un entorno sandbox en CockroachDB es tan sencillo:
 
-* Implemente el primer nodo en segundo plano y acceda a la consola de interfaz de usuario de CockroachDB
+Consola UI de CockroachDB:
+* [CockroachDB 8080]({{TRAFFIC_HOST1_8080}})
+* [CockroachDB 8081]({{TRAFFIC_HOST1_8081}})
+* [CockroachDB 8082]({{TRAFFIC_HOST1_8082}})
+
+* Implemente el primer nodo en segundo plano (background) y acceda a la consola de interfaz de usuario de CockroachDB
 
 ```
 cockroach start --insecure --store=cockroach-data/cockroach1 --listen-addr=localhost:26257 --http-addr=0.0.0.0:8080 --join=localhost:26257,localhost:26258,localhost:26259 --background
 ```{{exec}}
 
-Hemos asignado `--http-addr=0.0.0.0:8080` en este nodo para exponerlo a una IP pública. Para acceder a la consola del primer nodo, vaya a [CockroachDB UI Port 8080]({{TRAFFIC_HOST1_8080}}) después de inicializar el clúster, al momento esta liga fallará.
+Hemos asignado `--http-addr=0.0.0.0:8080` en este nodo para exponerlo a una IP pública.
 
 * Implemente el segundo nodo en segundo plano y acceda a la consola de interfaz de usuario de CockroachDB
 
@@ -16,7 +21,7 @@ Hemos asignado `--http-addr=0.0.0.0:8080` en este nodo para exponerlo a una IP p
 cockroach start --insecure --store=cockroach-data/cockroach2 --listen-addr=localhost:26258 --http-addr=0.0.0.0:8081 --join=localhost:26257,localhost:26258,localhost:26259 --background
 ```{{exec}}
 
-Hemos asignado `--http-addr=0.0.0.0:8081` en este nodo para exponerlo a una IP pública. Para acceder a la consola del segundo nodo, vaya a [CockroachDB UI Port 8081]({{TRAFFIC_HOST1_8081}}) después de inicializar el clúster.
+Hemos asignado `--http-addr=0.0.0.0:8081` en este nodo para exponerlo a una IP pública.
 
 
 * Implemente el tercer nodo en segundo plano y acceda a la consola de interfaz de usuario de CockroachDB
@@ -25,7 +30,7 @@ Hemos asignado `--http-addr=0.0.0.0:8081` en este nodo para exponerlo a una IP p
 cockroach start --insecure --store=cockroach-data/cockroach3 --listen-addr=localhost:26259 --http-addr=0.0.0.0:8082 --join=localhost:26257,localhost:26258,localhost:26259 --background
 ```{{exec}}
 
-Hemos asignado `--http-addr=0.0.0.0:8082` en este nodo para exponerlo a una IP pública. Para acceder a la consola del tercer nodo, vaya a [CockroachDB UI Port 8082]({{TRAFFIC_HOST1_8082}}) después de inicializar el clúster.
+Hemos asignado `--http-addr=0.0.0.0:8082` en este nodo para exponerlo a una IP pública.
 
 
 * Inicializar el clúster
@@ -42,7 +47,7 @@ CockroachDB elimina la necesidad de un solo Master o un solo nodo de writer. Tod
 
 
 
-* Por último, acceda a CockroachDB para ejecutar algunos comandos SQL a través de cualquier puerto SQL: `26257, 26258 o 26259`
+* Por último, acceda la consola SQL de CockroachDB para ejecutar algunos comandos a través de cualquier puerto SQL: `26257, 26258 o 26259`
 
 ```
 cockroach sql --insecure --host=localhost:26257
@@ -52,17 +57,18 @@ cockroach sql --insecure --host=localhost:26257
 SHOW DATABASES;
 ```{{exec}}
 
-Como puede ver, la base de datos `movr` que tuvimos durante la primera demostración no se cierra. Podemos proceder a crearlo a través de una carga de trabajo para probar el clúster a continuación. Salgamos de la consola SQL de CockroachDB por ahora.
+Como puede ver, la base de datos `movr` que tuvimos durante la primera demostración no existe. Podemos proceder a crearla a través de una carga de trabajo y probar la capacidad del clúster. Salgamos de la consola SQL de CockroachDB por ahora.
 ```
 \q
 ```{{exec}}
 
 * Opcional: aunque no se cubre en profundidad en este taller, la forma más práctica de acceder al clúster sería a través de balanceadores de carga. Vea un ejemplo con [`cockroach gen haproxy`](https://www.cockroachlabs.com/docs/stable/cockroach-gen.html), que lee la configuración de su clúster y genera automáticamente el haproxy.cfg con:
+
 ```
 cockroach gen haproxy --insecure --host=localhost --port=26257
 ```{{exec}}
 
-Instale y configure HAProxy para que se ejecute en el fondo
+* Instale y configure HAProxy para que se ejecute en el fondo
 
 ```
 apt install -y haproxy
@@ -72,7 +78,7 @@ apt install -y haproxy
 haproxy -f haproxy.cfg -D
 ```{{exec}}
 
-Debido a que estamos ejecutando haproxy y las 3 instancias de CockroachDB en la misma VM, el balanceador de carga no puede vincularse a un puerto en uso por CockroachDB. Este escenario funciona cuando CockroachDB se ejecuta en instancias de VM dedicadas o pods/contenedores K8.
+* Debido a que estamos ejecutando haproxy y las 3 instancias de CockroachDB en la misma VM, el balanceador de carga no puede vincularse a un puerto ya en uso por CockroachDB. Este escenario funciona cuando CockroachDB se ejecuta en instancias de VM dedicadas o pods/contenedores de Kubernetes.
 
 `[ALERT] 155/142030 (23803) : Starting proxy psql: cannot bind socket [0.0.0.0:26257]`
 

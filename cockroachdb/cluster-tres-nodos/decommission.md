@@ -2,6 +2,13 @@
 
 Consulte las mejores prácticas para el desmantelamiento de los nodos en la documentacion [Node Removal](https://www.cockroachlabs.com/docs/stable/node-shutdown.html)
 
+
+Consola UI de CockroachDB:
+* [CockroachDB 8080]({{TRAFFIC_HOST1_8080}})
+* [CockroachDB 8081]({{TRAFFIC_HOST1_8081}})
+* [CockroachDB 8082]({{TRAFFIC_HOST1_8082}})
+
+
 Hay dos pasos para eliminar un nodo del clúster:
 
 * Drenaje del nodo
@@ -27,7 +34,7 @@ SET CLUSTER SETTING server.time_until_store_dead = '15m0s';
 
 
 
-* Las mejores prácticas dictan que nuestro clúster debe tener una cantidad mínima de nodos para mantenerse en buen estado. Agregaremos un cuarto nodo para la escalabilidad aquí para garantizar que podamos retirar el primer nodo.
+* Las mejores prácticas dictan que nuestro clúster debe tener una cantidad mínima de nodos para mantenerse en buen estado. Agregaremos un cuarto nodo para garantizar que podamos retirar el primer nodo rápidamente.
 
 Esto garantiza que los datos del primer nodo se transfieran al nuevo nodo. Observe cómo los datos se mueven al nuevo nodo en el gráfico "Replicas per Node" de [CockroachDB UI Port 8083 Replicas en el Cluster]({{TRAFFIC_HOST1_8083}}/#/metrics/replication/cluster).
 
@@ -35,7 +42,9 @@ Esto garantiza que los datos del primer nodo se transfieran al nuevo nodo. Obser
 cockroach start --insecure --store=cockroach-data/cockroach4 --listen-addr=localhost:26260 --http-addr=0.0.0.0:8083 --join=localhost:26258,localhost:26259,localhost:26260 --background
 ```{{exec}}
 
-Hemos asignado `--http-addr=0.0.0.0:8083` en este nodo para exponerlo a una IP pública. Para acceder a la consola del tercer nodo, abra la url [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}) después de inicializar el clúster.
+Hemos asignado `--http-addr=0.0.0.0:8083` en este nodo para exponerlo a una IP pública.
+
+Para acceder a la consola del tercer nodo, abra la url [CockroachDB UI Port 8083]({{TRAFFIC_HOST1_8083}}) después de inicializar el clúster.
 
 
 
@@ -65,4 +74,11 @@ cockroach node status --decommission --insecure --host=localhost:26258
 cockroach node decommission 1 --insecure --host=localhost:26258
 ```{{exec}}
 
-¡Felicidades! Ha eliminado un nodo del clúster de CockroachDB.
+
+> Elimine el proceso unix para el primer nodo de CockroachDB
+
+```
+kill -9 $(ps -eaf | grep -v "grep" | grep cockroach1 | awk '{print $2}')
+```{{exec}}
+
+¡Felicidades! Ha eliminado y retirado un nodo del clúster de CockroachDB.
