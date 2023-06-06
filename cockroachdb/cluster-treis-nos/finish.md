@@ -8,7 +8,7 @@ Existem diferentes maneiras de implantar o CockroachDB em instâncias auto-hospe
 * Vimos o valor de usar o banco de dados distribuído e como ele ajuda a reduzir o tempo de inatividade em workloads críticas
 
 **Bônus:** Faça uso dos recursos gratuitos:
-* [Cockroach Labs University] (https://www.cockroachlabs.com/cockroach-university/)
+* [Cockroach Labs University](https://www.cockroachlabs.com/cockroach-university/)
 * Obtenha os livros mais recentes de [CockroachDB O'Reilly](https://www.cockroachlabs.com/resources/oreilly/)
 * [Comunidade Slack](https://www.cockroachlabs.com/join-community/)
 * Acesse os [Webinars](https://www.cockroachlabs.com/community/webinars/)

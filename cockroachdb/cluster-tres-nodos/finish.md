@@ -8,7 +8,7 @@ Hay diferentes formas de implementar CockroachDB en instancias autohospedadas, c
 * Vimos el valor de usar la base de datos distribuida y cómo ayuda a mitigar los tiempos de inactividad en cargas de trabajo críticas
 
 **Bono:** Haz uso de los recursos gratuitos:
-* [Universidad de Cockroach Labs] (https://www.cockroachlabs.com/cockroach-university/)
+* [Universidad de Cockroach Labs](https://www.cockroachlabs.com/cockroach-university/)
 * Obtén los últimos libros de [CockroachDB O'Reilly](https://www.cockroachlabs.com/resources/oreilly/)
 * [Comunidad en Slack](https://www.cockroachlabs.com/join-community/)
 * Acceda a los [Webinars](https://www.cockroachlabs.com/community/webinars/)
